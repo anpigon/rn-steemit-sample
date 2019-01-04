@@ -1,0 +1,70 @@
+{
+  "name": "rn_steem_app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "test": "jest",
+    "postinstall": "rn-nodeify --install fs,dgram,process,path,console,crypto,vm,stream,buffer,events,assert --hack"
+  },
+  "dependencies": {
+    "assert": "^1.4.1",
+    "buffer": "^4.9.1",
+    "console-browserify": "^1.1.0",
+    "events": "^1.1.1",
+    "native-base": "^2.10.0",
+    "path-browserify": "0.0.0",
+    "process": "^0.11.10",
+    "react": "16.6.3",
+    "react-native": "0.57.8",
+    "react-native-crypto": "^2.1.2",
+    "react-native-level-fs": "^3.0.1",
+    "react-native-randombytes": "^3.5.1",
+    "react-native-udp": "^2.3.1",
+    "readable-stream": "^1.0.33",
+    "steem": "^0.7.3",
+    "stream-browserify": "^1.0.0",
+    "vm-browserify": "0.0.4"
+  },
+  "devDependencies": {
+    "babel-jest": "23.6.0",
+    "jest": "23.6.0",
+    "metro-react-native-babel-preset": "0.51.1",
+    "react-devtools-core": "^3.4.2",
+    "react-test-renderer": "16.6.3",
+    "rn-nodeify": "^10.0.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "react-native": {
+    "console": "console-browserify",
+    "crypto": "react-native-crypto",
+    "path": "path-browserify",
+    "fs": "react-native-level-fs",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "dgram": "react-native-udp",
+    "stream": "stream-browserify",
+    "vm": "vm-browserify"
+  },
+  "browser": {
+    "console": "console-browserify",
+    "crypto": "react-native-crypto",
+    "path": "path-browserify",
+    "fs": "react-native-level-fs",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "dgram": "react-native-udp",
+    "stream": "stream-browserify",
+    "vm": "vm-browserify"
+  }
+}
