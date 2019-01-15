@@ -1,6 +1,30 @@
 import React, { Component } from 'react';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
-export default class AnatomyExample extends Component {
+import { View } from 'react-native';
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, Spinner } from 'native-base';
+import steem from 'steem';
+
+export default class Main extends Component {
+
+  state = {
+    ready: false,
+    profile: {}
+  }
+
+  componentWillMount() {
+    steem.api.getAccountsAsync(['anpigon']).then(result => {
+      if(result && result.length) {
+        console.log(result);
+        const [ account ] = result;
+        const { profile } = JSON.parse(account.json_metadata);
+        this.setState({
+          ready: true,
+          profile
+        })
+        
+      }
+    });
+  }
+
   render() {
     return (
       <Container>
@@ -16,9 +40,19 @@ export default class AnatomyExample extends Component {
           <Right />
         </Header>
         <Content>
-          <Text>
-            This is Content Section
-          </Text>
+          <View style={{justifyContent:'center', alignItems:'center'}}>
+          {
+            this.state.ready 
+            ?
+            <Text>
+              { 
+                JSON.stringify(this.state.profile, 1, 1) 
+              }
+            </Text>
+            :
+            <Spinner />
+          }
+          </View>
         </Content>
         <Footer>
           <FooterTab>
